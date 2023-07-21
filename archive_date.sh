@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 TODAY=$(date +%F)
 ARCHIVE_DATE=${1:-$TODAY}
 BASEDIR=$(pwd)

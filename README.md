@@ -5,7 +5,7 @@ eval export $(cat .env)
 # Use nix to fetch necessary utilities.
 nix shell
 # Archive today
-bash archive_date.sh
+archive
 # OR archive specific date
-bash archive_date.sh $ARCHIVE_DATE
+archive $ARCHIVE_DATE
 ```

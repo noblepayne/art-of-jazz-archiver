@@ -12,14 +12,18 @@
 	  name = "art-of-jazz-archiver";
 	  paths = [
 	    pkgs.coreutils
-	    pkgs.bash
 	    pkgs.aria2
 	    pkgs.rclone
 	  ];
 	};
+	archive_script = pkgs.writeShellApplication {
+	  name = "archive";
+	  runtimeInputs = [ env ];
+	  text = builtins.readFile ./archive_date.sh;
+	};
       in {
        packages = {
-         default = env;
+         default = archive_script;
        };
       }
     )
