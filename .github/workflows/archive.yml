@@ -24,4 +24,4 @@ jobs:
         run: |
           nix shell
           echo "NIX SETUP COMPLETE"
-          bash archive_date.sh "${{ inputs.archive_date }}""
+          bash archive_date.sh "${{ inputs.archive_date }}"
