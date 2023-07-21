@@ -5,8 +5,8 @@ on:
     inputs:
       archive_date:
         type: text
-  # schedule:
-  #   - cron: '0 17 * * 0'
+  schedule:
+    - cron: '0 4 * * 0'
 
 jobs:
   build:
