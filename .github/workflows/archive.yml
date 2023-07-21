@@ -23,4 +23,5 @@ jobs:
           AWS_SECRET_KEY: secrest.AWS_SECRET_KEY
         run: |
           nix shell
-          bash archive_date.sh "${github.event.inputs.archive_date"
+          echo "NIX SETUP COMPLETE"
+          bash archive_date.sh "${github.event.inputs.archive_date}"
