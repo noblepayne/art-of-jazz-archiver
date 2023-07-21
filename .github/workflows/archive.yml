@@ -19,8 +19,8 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@v2
       - name: Archive
         env:
-          AWS_ACCESS_KEY: secrets.AWS_ACCESS_KEY
-          AWS_SECRET_KEY: secrets.AWS_SECRET_KEY
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
         run: |
           nix build .
           echo "NIX SETUP COMPLETE"
