@@ -22,6 +22,6 @@ jobs:
           AWS_ACCESS_KEY: secrets.AWS_ACCESS_KEY
           AWS_SECRET_KEY: secrets.AWS_SECRET_KEY
         run: |
-          nix shell
+          nix build .
           echo "NIX SETUP COMPLETE"
-          archive "${{ inputs.archive_date }}"
+          ./result/bin/archive "${{ inputs.archive_date }}"
