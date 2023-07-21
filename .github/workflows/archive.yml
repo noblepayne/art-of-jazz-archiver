@@ -1,0 +1,25 @@
+name: archive
+
+on:
+  workflow_dispatch:
+    inputs:
+      archive_date:
+        type: text
+  # schedule:
+  #   - cron: '0 17 * * 0'
+
+jobs:
+  build:
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v4
+      - name: Run the Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@v2
+      - name: Archive
+        env:
+          AWS_ACCESS_KEY: secrest.AWS_ACCESS_KEY
+          AWS_SECRET_KEY: secrest.AWS_SECRET_KEY
+        run: |
+          nix shell
+          bash archive_date.sh "${github.event.inputs.archive_date"
