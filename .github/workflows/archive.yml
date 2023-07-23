@@ -21,4 +21,4 @@ jobs:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
         run: |
-          nix run github.com:noblepayne/art-of-jazz-archiver -- "${{ inputs.archive_date }}"
+          nix run github:noblepayne/art-of-jazz-archiver -- "${{ inputs.archive_date }}"
