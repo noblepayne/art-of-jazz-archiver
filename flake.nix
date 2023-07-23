@@ -11,8 +11,8 @@
 	env = pkgs.buildEnv {
 	  name = "art-of-jazz-archiver";
 	  paths = [
-	    pkgs.coreutils
 	    pkgs.aria2
+	    pkgs.coreutils
 	    pkgs.rclone
 	  ];
 	};
