@@ -12,8 +12,8 @@
 	      downloadScript = builtins.readFile ./downloadDate.sh;
 	      uploadScript = ''
 	        set -e
-	        rclone --config ${rcloneConf} copyto --progress $${WORKDIR}/ DO:artofjazz/episodes/
-		rm -r $${$WORKDIR}
+	        rclone --config ${rcloneConf} copyto --progress "$WORKDIR"/ DO:artofjazz/episodes/
+		rm -r "$WORKDIR"
 	      '';
 	      archive = pkgs.writeShellApplication {
 	        name = "archive";
