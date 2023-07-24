@@ -1,14 +1,15 @@
 TODAY=$(date +%F)
 ARCHIVE_DATE=${1:-$TODAY}
 BASEDIR=$(pwd)
+WORKDIR=$(mktemp -d)
 
 echo
 echo "RUNNING FOR ${ARCHIVE_DATE}"
 echo
 
 
-mkdir -p "workdir/${ARCHIVE_DATE}"
-cd "workdir/${ARCHIVE_DATE}" || exit 1
+mkdir -p "$WORKDIR/${ARCHIVE_DATE}"
+cd "$WORKDIR/${ARCHIVE_DATE}" || exit 1
 
 {
   echo "https://d3en5yq84nu4pk.cloudfront.net/${ARCHIVE_DATE}/knkx_${ARCHIVE_DATE}T14-00-00.m4a"
