@@ -1,4 +1,4 @@
-TODAY=$(date +%F)
+TODAY=$(TZ="America/Los_Angeles" date +%F)
 ARCHIVE_DATE=${1:-$TODAY}
 BASEDIR=$(pwd)
 WORKDIR=$(mktemp -d)
