@@ -8,22 +8,26 @@
     flake-utils.lib.eachDefaultSystem (system: 
       let
         pkgs = nixpkgs.legacyPackages.${system};
-	env = pkgs.buildEnv {
-	  name = "art-of-jazz-archiver";
-	  paths = [
+	rcloneConf = pkgs.writeText "rclone.conf" (builtins.readFile ./rclone.conf);
+	downloadScript = builtins.readFile ./downloadDate.sh;
+	uploadScript = ''
+	  rclone --config ${rcloneConf} copyto --progress ./workdir/ DO:artofjazz/episodes/
+	'';
+	archive = pkgs.writeShellApplication {
+	  name = "archive";
+	  runtimeInputs = [
 	    pkgs.aria2
 	    pkgs.coreutils
 	    pkgs.rclone
 	  ];
-	};
-	archive_script = pkgs.writeShellApplication {
-	  name = "archive";
-	  runtimeInputs = [ env ];
-	  text = builtins.readFile ./archive_date.sh;
+	  text = ''
+	    ${downloadScript}
+	    ${uploadScript}
+	  '';
 	};
       in {
        packages = {
-         default = archive_script;
+         default = archive;
        };
       }
     )

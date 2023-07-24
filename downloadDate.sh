@@ -49,5 +49,3 @@ fi
 echo
 
 cd "$BASEDIR" || exit 1
-
-rclone --config rclone.conf copyto --progress ./workdir/ DO:artofjazz/episodes/
