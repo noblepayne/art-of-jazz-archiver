@@ -21,6 +21,7 @@
             pkgs.aria2
             pkgs.coreutils
             pkgs.rclone
+            pkgs.python3
           ];
           text = ''
             ${downloadScript}

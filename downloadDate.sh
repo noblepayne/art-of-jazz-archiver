@@ -1,10 +1,12 @@
-TODAY=$(TZ="America/Los_Angeles" date +%F)
+# TODAY=$(TZ="America/Los_Angeles" date +%F)
+TODAY=$(python3 -c 'import datetime; import zoneinfo; print(datetime.datetime.now(tz=zoneinfo.ZoneInfo("UTC")).astimezone(zoneinfo.ZoneInfo("America/Los_Angeles")).strftime("%F"))')
 ARCHIVE_DATE=${1:-$TODAY}
 BASEDIR=$(pwd)
 WORKDIR=$(mktemp -d)
 
 echo
-echo "RUNNING FOR ${ARCHIVE_DATE}"
+echo -n "Date currently shows: " && date
+echo "ARCHIVE_DATE = ${ARCHIVE_DATE}"
 echo
 
 
