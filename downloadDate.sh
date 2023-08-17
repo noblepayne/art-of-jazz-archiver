@@ -19,7 +19,7 @@ cd "$WORKDIR/${ARCHIVE_DATE}" || exit 1
   echo "https://d3en5yq84nu4pk.cloudfront.net/${ARCHIVE_DATE}/knkx_${ARCHIVE_DATE}T18-00-00.m4a"
 } >> files_to_download.txt
 
-aria2c -i files_to_download.txt
+aria2c -i files_to_download.txt || true
 rm files_to_download.txt
 
 echo
@@ -33,7 +33,7 @@ if [ "$download_count" -ne 5 ]; then
       echo "https://d3en5yq84nu4pk.cloudfront.net/${ARCHIVE_DATE}/knkx_${ARCHIVE_DATE}T17-00-01.m4a"
       echo "https://d3en5yq84nu4pk.cloudfront.net/${ARCHIVE_DATE}/knkx_${ARCHIVE_DATE}T18-00-01.m4a"
     } >> files_to_download.txt
-    aria2c -i files_to_download.txt
+    aria2c -i files_to_download.txt || true
     rm files_to_download.txt
 fi
 
