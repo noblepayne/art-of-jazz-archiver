@@ -52,3 +52,4 @@ fi
 echo
 
 cd "$BASEDIR" || exit 1
+echo "$TODAY" >> log.txt

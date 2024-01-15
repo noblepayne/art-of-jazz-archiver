@@ -11,6 +11,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v4
@@ -22,3 +24,9 @@ jobs:
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
         run: |
           nix run github:noblepayne/art-of-jazz-archiver -- "${{ inputs.archive_date }}"
+      - name: commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Updating log."
+          file_pattern: "log.txt"
+
